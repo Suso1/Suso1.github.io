@@ -63,7 +63,7 @@ div.section-select>button+button {
 
 div.section-select>button.selected-section {
     color: white;
-    background-color: black;
+    background-color: rgb(82, 0, 166);
 }
 
 div.contact>a {
