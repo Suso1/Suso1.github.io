@@ -86,6 +86,7 @@ async function initShaders() {
 
     shaderProgram.timeUniform = gl.getUniformLocation(shaderProgram, "time");
     shaderProgram.mouseUniform = gl.getUniformLocation(shaderProgram, "mouse");
+    shaderProgram.dimsUniform = gl.getUniformLocation(shaderProgram, "dims");
 }
 
 var quadVertexPositionBuffer;
@@ -131,6 +132,7 @@ function initBuffers() {
 
 let mousex = 0.0;
 let mousey = 0.0;
+let canvas;
 let canvasBounds;
 
 function drawScene() {
@@ -146,6 +148,7 @@ function drawScene() {
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, quadVertexIndexBuffer);
     gl.uniform1f(shaderProgram.timeUniform, runningTime * 0.001);
     gl.uniform2f(shaderProgram.mouseUniform, mousex, mousey);
+    gl.uniform2f(shaderProgram.dimsUniform, canvasBounds.width, canvasBounds.height);
     gl.drawElements(gl.TRIANGLES, quadVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
 }
 
@@ -166,12 +169,13 @@ function animate() {
 
 function tick() {
     requestAnimationFrame(tick);
+    canvasBounds = canvas.getBoundingClientRect();
     animate();
     drawScene();
 }
 
 async function webGLStart() {
-    var canvas = document.getElementById("gl-bg-canvas");
+    canvas = document.getElementById("gl-bg-canvas");
     canvasBounds = canvas.getBoundingClientRect();
     initGL(canvas);
     await initShaders();

@@ -1,10 +1,9 @@
 #extension GL_OES_standard_derivatives : enable
-#ifdef GL_ES
 precision highp float;
-#endif
 
 uniform float time;
 uniform vec2 mouse;
+uniform vec2 dims;
 
 varying vec2 texpos;
 
@@ -87,16 +86,23 @@ float aastep(float threshold, float value) {
 void main(void) {
   vec2 g;
 
+  // Circular noise
   const vec4 ring_color = vec4(0.42, 0.0, 0.81, 1.0);
-  float ring_dist = -2.0;
   vec2 effpos = texpos / 10.0 - 0.12;
+  effpos.x *= dims.x / dims.y;
   float r = length(effpos);
   float theta = atan(effpos.y, effpos.x) / (3.141592 * 2.0);
-  float noise = 0.0;
-  vec4 color = ring_color * aastep(0.0, -ring_dist) * (psrdfbmr(vec2(r - time * 0.01, theta + r) * 10.0 + noise * 0.4, vec2(0.0, 1.0), 0.0) + 1.0) / 2.0;
+  vec2 effmouse = mouse / 10.0 - 0.12;
+  effmouse.x *= dims.x / dims.y;
+  float mouse_dist = distance(effmouse, effpos);
+  float nse = psrdfbmr(effpos * 100.0 , vec2(0.0), time);
+  float ring_dist = 0.15 -mouse_dist * 50.0 + nse * 0.07;
+
+  vec4 color = ring_color * aastep(0.0, -ring_dist) * (psrdfbmr(vec2(r - time * 0.01, theta + r) * 10.0, vec2(0.0, 1.0), 0.0) + 1.0) / 2.0;
   color += ring_color * (1.2 - pow(distance(clamp(abs(ring_dist) - 0.01, 0.0, 100.0), 0.0), 0.3));
   color += pow(clamp(1.0 - sqrt(distance(clamp(abs(ring_dist) - 0.01, 0.0, 100.0), 0.0)), 0.0, 1.0), 9.0);
 
+  // Vignette
   color.rgb *= vec3(clamp(1.0 - pow(length(texpos - 0.5) * 1.5, 2.0), 0.0, 1.0));
 
   gl_FragColor = color;
