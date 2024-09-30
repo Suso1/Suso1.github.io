@@ -61,6 +61,11 @@ div.section-select>button+button {
     margin-top: 10px;
 }
 
+div.section-select>button.selected-section {
+    color: white;
+    background-color: black;
+}
+
 div.contact>a {
     padding-left: 5px;
     color: rgb(0, 0, 0);

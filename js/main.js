@@ -30,21 +30,32 @@ function execute_frame(timestamp) {
 
 requestAnimationFrame(execute_frame);
 
+let selected_button = null;
 function selectSection(section) {
     let card_list = document.getElementById("card-list");
-    
+
     Array.from(card_list.children).forEach(card => {
         card.style = card.getAttribute("section") === section ? "max-height: 400px;" : "max-height: 0; opacity: 0; padding: 0; margin-top: 0;";
     });
 
     lenis.scrollTo(0, 0);
+
+    if (selected_button !== null) {
+        selected_button.classList.remove("selected-section");
+    }
+
+    selected_button = document.getElementById(section + "-button");
+    if(selected_button === null) {
+        return;
+    }
+    selected_button.classList.add("selected-section");
 }
 
 const lenis = new Lenis();
 
 function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
+    lenis.raf(time);
+    requestAnimationFrame(raf);
 }
 
 requestAnimationFrame(raf);
