@@ -5,17 +5,21 @@ body {
     font-family: "Roboto", sans-serif;
     font-weight: 400%;
     font-style: normal;
+    
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 div.sidebar {
     margin: 0;
-    padding: 0;
     width: 400px;
     background-color: #f1f1f1;
     position: fixed;
     height: 100%;
+    min-height: fit-content;
     overflow: auto;
-    padding: 10px
+    padding: 10px;
+    padding-bottom: 0px;
 }
 
 div.sidebar>h1+h3 {
@@ -61,27 +65,61 @@ div.contact>a {
     color: rgb(0, 0, 0);
 }
 
+div.sidebar>div.tagline {
+    font-size: smaller;
+    position: absolute;
+    bottom: 15px;
+}
+
 div.content {
     margin-left: 420px;
     padding: 30px;
-    overflow-y: auto;
-    overflow-x: hidden;
 
     color: rgb(255, 255, 255);
     height: 100%;
+    scroll-behavior: smooth;
+}
+
+div.card {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 1.1);
+    border-radius: 5px;
+    transition: all 0.5s;
+    height: 400px;
+}
+
+div.card+div.card {
+    margin-top: 10px;
 }
 
 div.bg-canvas {
     display: block;
     top: 0;
     left: 420px;
-    position: fixed;
-    z-index: -100;
     right: 0;
     bottom: 0;
+    position: fixed;
+    z-index: -100;
 }
 
-div.bg-canvas > canvas {
+div.bg-canvas>canvas {
     width: 100%;
     height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #cccccc;
 }

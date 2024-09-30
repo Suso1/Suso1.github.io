@@ -2,13 +2,17 @@
 <html>
     <head>
         <title>Suso - Portfolio</title>
-        <script src="js/main.js"></script>
-        <link rel="stylesheet" href="css/main.css">
         <link rel="icon" type="image/png" href="images/favicon.png"/>
+
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css">
+
+        <script src="js/main.js"></script>
+        <link rel="stylesheet" href="css/main.css">
         
         <script src="js/webgl.js" defer=true></script>
         <script src="shaders/bg.fsh" id="shader-fragment" type="x-shader/x-fragment"></script>
@@ -34,16 +38,53 @@
                 <a href="https://github.com/5uso">github.com/5uso</a>
             </div>
             <div class="section-select">
-                <button>Shaders / VFX</button>
-                <button>OpenGL / Vulkan</button>
-                <button>C / C++</button>
-                <button>Code Structure</button>
-                <button>Team / Project Management</button>
+                <button onclick="selectSection('shaders')">Shaders / VFX</button>
+                <button onclick="selectSection('apis')">OpenGL / Vulkan</button>
+                <button onclick="selectSection('c')">C / C++</button>
+                <button onclick="selectSection('code')">Code Structure</button>
+                <button onclick="selectSection('project')">Team / Project Management</button>
+            </div>
+            <div class="tagline">
+                Made with HTML, CSS, Js, and a pinch of shaders.
             </div>
         </div>
         <div class="content">
-            <h1>Heading</h1>
-            <p>Text.</p>
+            <div class="section-head">
+                <h1>Heading</h1>
+                <p>Text.</p>
+            </div>
+            <div class="cards" id="card-list">
+                <div class="card" section="shaders">
+                    test
+                </div>
+                <div class="card" section="shaders">
+                    test
+                </div>
+                <div class="card" section="apis">
+                    test
+                </div>
+                <div class="card" section="shaders">
+                    test
+                </div>
+                <div class="card" section="shaders">
+                    test
+                </div>
+                <div class="card" section="apis">
+                    test
+                </div>
+                <div class="card" section="apis">
+                    test
+                </div>
+                <div class="card" section="shaders">
+                    test
+                </div>
+                <div class="card" section="shaders">
+                    test
+                </div>
+                <div class="card" section="shaders">
+                    test
+                </div>
+            </div>
             <div class="bg-canvas">
                 <canvas id="gl-bg-canvas"></canvas>
             </div>

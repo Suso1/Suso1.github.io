@@ -29,3 +29,22 @@ function execute_frame(timestamp) {
 }
 
 requestAnimationFrame(execute_frame);
+
+function selectSection(section) {
+    let card_list = document.getElementById("card-list");
+    
+    Array.from(card_list.children).forEach(card => {
+        card.style = card.getAttribute("section") === section ? "max-height: 400px;" : "max-height: 0; opacity: 0; padding: 0; margin-top: 0;";
+    });
+
+    lenis.scrollTo(0, 0)
+}
+
+const lenis = new Lenis()
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
