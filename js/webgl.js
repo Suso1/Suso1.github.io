@@ -85,6 +85,7 @@ async function initShaders() {
     gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute);
 
     shaderProgram.timeUniform = gl.getUniformLocation(shaderProgram, "time");
+    shaderProgram.mouseUniform = gl.getUniformLocation(shaderProgram, "mouse");
 }
 
 var quadVertexPositionBuffer;
@@ -128,6 +129,10 @@ function initBuffers() {
     quadVertexIndexBuffer.numItems = 6;
 }
 
+let mousex = 0.0;
+let mousey = 0.0;
+let canvasBounds;
+
 function drawScene() {
     gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
@@ -140,6 +145,7 @@ function drawScene() {
 
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, quadVertexIndexBuffer);
     gl.uniform1f(shaderProgram.timeUniform, runningTime * 0.001);
+    gl.uniform2f(shaderProgram.mouseUniform, mousex, mousey);
     gl.drawElements(gl.TRIANGLES, quadVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
 }
 
@@ -166,9 +172,15 @@ function tick() {
 
 async function webGLStart() {
     var canvas = document.getElementById("gl-bg-canvas");
+    canvasBounds = canvas.getBoundingClientRect();
     initGL(canvas);
     await initShaders();
     initBuffers();
+
+    window.addEventListener('mousemove', evt => {
+        mousex = (evt.pageX - canvasBounds.left) / canvasBounds.width;
+        mousey = 1.0 - (evt.pageY - canvasBounds.top) / canvasBounds.height;
+    });
 
     startTime = new Date().getTime();
     gl.clearColor(0.0, 0.0, 0.0, 1.0);

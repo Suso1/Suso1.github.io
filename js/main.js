@@ -20,8 +20,8 @@ function easeInOutCubic(x) {
 function execute_frame(timestamp) {
     const elapsed = (timestamp - animation_time);
 
-    highlight_radius = last_hover_highlight ? Math.min(1.0, highlight_radius + elapsed * 0.005) : 0;
-    const effective_radius = easeInOutCubic(highlight_radius) * 100.0;
+    highlight_radius = last_hover_highlight ? Math.min(1.0, highlight_radius + elapsed * 0.002) : 0;
+    const effective_radius = easeInOutCubic(highlight_radius) * 150.0;
     document.documentElement.style.setProperty('--highlight-radius', effective_radius);
 
     animation_time = timestamp;
@@ -37,14 +37,14 @@ function selectSection(section) {
         card.style = card.getAttribute("section") === section ? "max-height: 400px;" : "max-height: 0; opacity: 0; padding: 0; margin-top: 0;";
     });
 
-    lenis.scrollTo(0, 0)
+    lenis.scrollTo(0, 0);
 }
 
-const lenis = new Lenis()
+const lenis = new Lenis();
 
 function raf(time) {
-  lenis.raf(time)
-  requestAnimationFrame(raf)
+  lenis.raf(time);
+  requestAnimationFrame(raf);
 }
 
-requestAnimationFrame(raf)
+requestAnimationFrame(raf);
