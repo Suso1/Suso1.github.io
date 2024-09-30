@@ -182,8 +182,8 @@ async function webGLStart() {
     initBuffers();
 
     window.addEventListener('mousemove', evt => {
-        mousex = (evt.pageX - canvasBounds.left) / canvasBounds.width;
-        mousey = 1.0 - (evt.pageY - canvasBounds.top) / canvasBounds.height;
+        mousex = (evt.clientX - canvasBounds.left) / canvasBounds.width;
+        mousey = 1.0 - (evt.clientY - canvasBounds.top) / canvasBounds.height;
     });
 
     startTime = new Date().getTime();
