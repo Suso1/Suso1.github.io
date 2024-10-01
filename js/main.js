@@ -42,10 +42,10 @@ const headers = {
 const descriptions = {
     "none": "Here you can see snippets highlighting my technical and artistic work. Use the menu on the left to navigate between sections.",
     "shaders": "Realtime visual effects achieved via shaders and particle systems.",
-    "apis": "OpenGL / Vulkan",
-    "c": "C / C++",
-    "code": "Code Structure",
-    "project": "Team / Project Management",
+    "apis": "Through both personal and university projects I've gotten to work with APIs such as OpenGL and Vulkan, as well as learned about pervasive concepts in graphics.",
+    "c": "I particularly enjoy building highly performant systems in low level languages. As a result, I've written a lot of C and C++.",
+    "code": "Throughout the years I've worked with large codebases, learning to produce high-quality code that other team members can easily understand.",
+    "project": "In the past I have taken roles as a lead, coordinating work and resources to deliver projects of a larger scale.",
 };
 
 let section_header_it;
