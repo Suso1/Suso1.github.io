@@ -40,13 +40,13 @@
             </div>
             <div class="section-select">
                 <button onclick="selectSection('shaders')" id="shaders-button">Shaders / VFX</button>
-                <button onclick="selectSection('apis')" id="apis-button">OpenGL / Vulkan</button>
+                <button onclick="selectSection('apis')" id="apis-button">Graphics APIs</button>
                 <button onclick="selectSection('c')" id="c-button">C / C++</button>
                 <button onclick="selectSection('code')" id="code-button">Code Structure</button>
                 <button onclick="selectSection('project')" id="project-button">Team / Project Management</button>
             </div>
             <div class="tagline">
-                Made with HTML, CSS, Js, and a pinch of shaders.
+                Made with HTML, CSS, JS, and a pinch of shaders.
             </div>
         </div>
         <div class="content">
@@ -92,6 +92,19 @@
                 <canvas id="gl-bg-canvas"></canvas>
             </div>
         </div>
+        <!--
+        <svg class="noise-filter">
+            <defs>
+                <filter id="noisy">
+                    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="1" seed="2711" result="noise"/>
+                    <feOffset id="offset" in="noise" dx="100" dy="0" result="scrolled">
+                        <animate attributeName="dx" by="-50" dur="1s" repeatCount="indefinite" accumulate="sum" additive="sum"/>
+                    </feOffset>
+                    <feDisplacementMap id="displacement" in="SourceGraphic" in2="scrolled" scale="10"/>
+                </filter>
+            </defs>
+        </svg>
+        -->
     </body>
     <script>selectSection('none');</script>
 </html>

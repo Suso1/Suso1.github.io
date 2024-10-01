@@ -33,7 +33,7 @@ requestAnimationFrame(execute_frame);
 const headers = {
     "none": "“You find yourself in a portfolio...”",
     "shaders": "Shaders / VFX",
-    "apis": "OpenGL / Vulkan",
+    "apis": "Graphics APIs",
     "c": "C / C++",
     "code": "Code Structure",
     "project": "Team / Project Management",
@@ -41,7 +41,7 @@ const headers = {
 
 const descriptions = {
     "none": "Here you can see snippets highlighting my technical and artistic work. Use the menu on the left to navigate between sections.",
-    "shaders": "Shaders / VFX",
+    "shaders": "Realtime visual effects achieved via shaders and particle systems.",
     "apis": "OpenGL / Vulkan",
     "c": "C / C++",
     "code": "Code Structure",
