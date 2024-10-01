@@ -167,9 +167,17 @@ function animate() {
     }
 }
 
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    gl.viewportWidth = canvas.width;
+    gl.viewportHeight = canvas.height;
+    canvasBounds = canvas.getBoundingClientRect();
+}
+
 function tick() {
     requestAnimationFrame(tick);
-    canvasBounds = canvas.getBoundingClientRect();
+    resizeCanvas();
     animate();
     drawScene();
 }
