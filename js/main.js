@@ -152,3 +152,8 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf);
+
+addEventListener("resize", (evt) => {
+    let head = document.getElementById("section-head");
+    head.style.height = (head.getElementsByTagName('div')[0].scrollHeight + 20) + "px";
+});
