@@ -74,7 +74,7 @@ function start_typing_section(section) {
 }
 
 function get_dzongkha_char() {
-    const options = "འདི་ཡང་འབྲུག་རྒྱང་བསྒྲགས་ལས་འཛིན་གྱིས་འབྲུག་རྒྱང་བསྒྲགས་ལས་འཛིན་ལུ་འབྲུག་རྒྱང་བསྒྲགས་ལས་འཛིན་གྱི་ཡིག་འབྲུ་ཚུ་བྲིས་ཏེ་ཡོདཔ་ཨིན།";
+    const options = "འདིཡངའབྲུགརྒྱངབསྒྲགས་ལས་འཛིནགྱིསའབྲུགརྒྱངབསྒྲགསལསའཛིནལུའབྲུགརྒྱངབསྒྲགསལསའཛིནགྱིཡིགའབྲུཚུབྲིསཏེཡོདཔཨིན";
     return options.charAt(Math.floor(Math.random() * options.length));
 }
 
