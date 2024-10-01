@@ -73,6 +73,11 @@ function start_typing_section(section) {
     requestAnimationFrame(type_section_header);
 }
 
+function get_dzongkha_char() {
+    const options = "འདི་ཡང་འབྲུག་རྒྱང་བསྒྲགས་ལས་འཛིན་གྱིས་འབྲུག་རྒྱང་བསྒྲགས་ལས་འཛིན་ལུ་འབྲུག་རྒྱང་བསྒྲགས་ལས་འཛིན་གྱི་ཡིག་འབྲུ་ཚུ་བྲིས་ཏེ་ཡོདཔ་ཨིན།";
+    return options.charAt(Math.floor(Math.random() * options.length));
+}
+
 function type_section_header(timestamp) {
     const elapsed = (timestamp - previous_typing_time) / 1000.0;
     
@@ -96,8 +101,14 @@ function type_section_header(timestamp) {
         section_header_it += 1;
         if (section_header_it <= header_str.length) {
             section_header.textContent = header_str.slice(0, section_header_it);
+            if (section_header_it < header_str.length) {
+                section_header.textContent += get_dzongkha_char();
+            }
         } else if(section_header_it <= header_str.length + description_str.length) {
             section_description.textContent = description_str.slice(0, section_header_it - header_str.length);
+            if (section_header_it < header_str.length + description_str.length) {
+                section_description.textContent += get_dzongkha_char();
+            }
         } else {
             return;
         }
@@ -123,6 +134,7 @@ function selectSection(section) {
     }
 
     start_typing_section(section);
+
     selected_button = document.getElementById(section + "-button");
     if(selected_button === null) {
         return;

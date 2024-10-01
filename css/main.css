@@ -91,6 +91,7 @@ div.section-head {
     margin-top: 10px;
     padding-left: 20px;
     margin-bottom: 10px;
+    min-height: 130px;
     font-family: "Modern Antiqua", serif;
     font-weight: 200;
     font-style: normal;
