@@ -30,6 +30,84 @@ function execute_frame(timestamp) {
 
 requestAnimationFrame(execute_frame);
 
+const headers = {
+    "none": "“You find yourself in a portfolio...”",
+    "shaders": "Shaders / VFX",
+    "apis": "OpenGL / Vulkan",
+    "c": "C / C++",
+    "code": "Code Structure",
+    "project": "Team / Project Management",
+};
+
+const descriptions = {
+    "none": "Here you can see snippets highlighting my technical and artistic work. Use the menu on the left to navigate between sections.",
+    "shaders": "Shaders / VFX",
+    "apis": "OpenGL / Vulkan",
+    "c": "C / C++",
+    "code": "Code Structure",
+    "project": "Team / Project Management",
+};
+
+let section_header_it;
+let time_since_last_char;
+let section_header;
+let section_description;
+let header_str;
+let description_str;
+let previous_typing_time;
+function start_typing_section(section) {
+    section_header = document.getElementById("section-header");
+    section_description = document.getElementById("section-description");
+
+    section_header_it = 0;
+    time_since_last_char = 0;
+    header_str = headers[section];
+    description_str = descriptions[section];
+
+    section_header.style.transition = "0.3s";
+    section_description.style.transition = "0.3s";
+    section_header.style.opacity = 0;
+    section_description.style.opacity = 0;
+
+    previous_typing_time = document.timeline.currentTime;
+    requestAnimationFrame(type_section_header);
+}
+
+function type_section_header(timestamp) {
+    const elapsed = (timestamp - previous_typing_time) / 1000.0;
+    
+    if (section_header.style.opacity == 0) {
+        if (elapsed > 0.3) {
+            section_header.textContent = " ";
+            section_description.textContent = " ";
+
+            section_header.style.transition = "0s";
+            section_description.style.transition = "0s";
+            section_header.style.opacity = 1;
+            section_description.style.opacity = 1;
+
+            previous_typing_time = timestamp;
+        }
+        requestAnimationFrame(type_section_header);
+        return;
+    }
+
+    if(elapsed > 0.02) {
+        section_header_it += 1;
+        if (section_header_it <= header_str.length) {
+            section_header.textContent = header_str.slice(0, section_header_it);
+        } else if(section_header_it <= header_str.length + description_str.length) {
+            section_description.textContent = description_str.slice(0, section_header_it - header_str.length);
+        } else {
+            return;
+        }
+
+        previous_typing_time = timestamp;
+    }
+
+    requestAnimationFrame(type_section_header);
+}
+
 let selected_button = null;
 function selectSection(section) {
     let card_list = document.getElementById("card-list");
@@ -44,6 +122,7 @@ function selectSection(section) {
         selected_button.classList.remove("selected-section");
     }
 
+    start_typing_section(section);
     selected_button = document.getElementById(section + "-button");
     if(selected_button === null) {
         return;

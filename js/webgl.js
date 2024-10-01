@@ -168,7 +168,7 @@ function animate() {
 }
 
 function resizeCanvas() {
-    canvas.width = window.innerWidth;
+    canvas.width = window.innerWidth - 400;
     canvas.height = window.innerHeight;
     gl.viewportWidth = canvas.width;
     gl.viewportHeight = canvas.height;

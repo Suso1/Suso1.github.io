@@ -89,20 +89,18 @@ div.content {
 
 div.section-head {
     margin-top: 10px;
-    padding: 1px;
     padding-left: 20px;
     margin-bottom: 10px;
-    font-family: "IBM Plex Serif", serif;
+    font-family: "Modern Antiqua", serif;
     font-weight: 200;
     font-style: normal;
 
-    /*border: 10px solid transparent;
-    border-image: url(../images/favicon.png) 30 round;*/
+    background-image: url(../images/prompt_bg.png);
+    border: 10px solid;
+    border-color: rgb(82, 0, 166);
+    border-style: ridge;
 
-    background-color: rgba(0, 12, 53, 0.486);
-    /*opacity: 0.8;
-    background-image: radial-gradient( ellipse farthest-corner at 10px 10px , rgba(0, 25, 107, 0.486), rgba(0, 25, 107, 0.486) 50%, rgba(0, 12, 53, 0.486) 50%);
-    background-size: 10px 10px;*/
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073;
 }
 
 div.card {
