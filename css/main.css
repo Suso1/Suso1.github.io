@@ -90,8 +90,9 @@ div.content {
 div.section-head {
     margin-top: 10px;
     padding-left: 20px;
+    padding-bottom: 20px;
     margin-bottom: 10px;
-    min-height: 130px;
+    transition: height 0.1s;
     font-family: "Modern Antiqua", serif;
     font-weight: 200;
     font-style: normal;
@@ -102,6 +103,14 @@ div.section-head {
     border-style: ridge;
 
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073;
+}
+
+div.section-head > div > h1 {
+    line-height: 1;
+}
+
+div.section-head > div > p {
+    line-height: 1;
 }
 
 div.card {

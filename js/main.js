@@ -85,7 +85,7 @@ function type_section_header(timestamp) {
         if (elapsed > 0.3) {
             section_header.textContent = " ";
             section_description.textContent = " ";
-
+            
             section_header.style.transition = "0s";
             section_description.style.transition = "0s";
             section_header.style.opacity = 1;
@@ -96,6 +96,8 @@ function type_section_header(timestamp) {
         requestAnimationFrame(type_section_header);
         return;
     }
+
+    section_header.parentElement.parentElement.style.height = (section_header.parentElement.scrollHeight + 20) + "px";
 
     if(elapsed > 0.02) {
         section_header_it += 1;
