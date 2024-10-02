@@ -255,7 +255,15 @@
                 </div>
                 <div class="card" section="c">
                     <h1>Preprocessing Data for Games</h1>
-                    test
+                    <div class="card-content">
+                        <div class="justified" style="width: 25%;">
+                            <p>At the start of 2021, our development team noticed the URLs where user-uploaded images were located in Mojang's servers corresponded to their SHA256 hashes. By controlling these hashes, it should be possible to transmit arbitrary data to clients consuming the API. This would allow webservers to communicate with applications written to run within Minecraft, something that was thought to be completely impossible.</p>
+                            <p>We started work on developing the fastest way to compute all the hashes we would need. At first, the estimated runtime was over 2 years. However, after numerous optimizations, we were able to generate an extremely compressed database weighing in at 8GB, with the information corresponding to 235 individual images in a couple of hours, which allowed us to reliably transmit 32 bits of information per hash. Once the computation was complete, subsequent queries to this database were instantaneous, allowing us to use them in a game service.</p>
+                        </div>
+                        <div style="height: 520px; width: 75%; align-items: center;" class="codebox" data-lenis-prevent>
+                            <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2F5uso%2FFastSkinHasher%2Fblob%2Fmain%2Fmain.cpp&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></script>
+                        </div>
+                    </div>
                 </div>
                 <div class="card" section="code">
                     <h1>Game Modding</h1>
