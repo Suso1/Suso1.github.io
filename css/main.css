@@ -150,6 +150,16 @@ div.card-content>div.codebox{
     overflow-y: scroll;
 }
 
+video {
+    border-radius: 5px;
+    border: 2px solid;
+}
+
+div.card-content>img {
+    border-radius: 5px;
+    border: 2px solid;
+}
+
 .emgithub-file {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
