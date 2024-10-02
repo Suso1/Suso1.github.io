@@ -126,6 +126,7 @@ div.card {
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.6);
     transition: all 0.5s;
+    display: none;
 
     border: 2px solid;
     border-radius: 5px;
