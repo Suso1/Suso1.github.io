@@ -11,6 +11,7 @@ body {
 }
 
 div.sidebar {
+    color: black;
     margin: 0;
     width: 400px;
     background-color: #f1f1f1;
@@ -106,20 +107,19 @@ div.section-head {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073;
 }
 
-div.section-head > div > h1 {
+div.section-head>div>h1 {
     line-height: 1;
 }
 
-div.section-head > div > p {
+div.section-head>div>p {
     line-height: 1;
 }
 
 div.card {
-    padding: 10px;
+    padding: 0px 20px 20px 20px;
     background-color: rgba(0, 0, 0, 0.6);
     transition: all 0.5s;
-    height: 400px;
-    
+
     border: 2px solid;
     border-radius: 5px;
     border-color: rgba(111, 95, 255, 0.5);
@@ -129,6 +129,10 @@ div.card {
 
 div.card+div.card {
     margin-top: 10px;
+}
+
+div.card>h1 {
+    padding: 0px;
 }
 
 div.bg-canvas {
