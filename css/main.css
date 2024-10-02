@@ -133,6 +133,26 @@ div.card+div.card {
 
 div.card>h1 {
     padding: 0px;
+    width: 100%;
+}
+
+div.card-content {
+    display: flex;
+}
+
+div.justified>p{
+    text-align: justify;
+    margin-right: 30px;
+}
+
+div.card-content>div.codebox{
+    overflow-y: scroll;
+}
+
+.emgithub-file {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-right: 5px !important;
 }
 
 div.bg-canvas {

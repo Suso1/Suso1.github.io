@@ -97,11 +97,10 @@ function initBuffers() {
     quadVertexPositionBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, quadVertexPositionBuffer);
     vertices = [
-        // One single immovable quad covering the view
         -1.0, -1.0, 0.0,
-        1.0, -1.0, 0.0,
-        1.0, 1.0, 0.0,
-        -1.0, 1.0, 0.0,
+         1.0, -1.0, 0.0,
+         1.0,  1.0, 0.0,
+        -1.0,  1.0, 0.0,
     ];
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
     quadVertexPositionBuffer.itemSize = 3;
@@ -110,7 +109,6 @@ function initBuffers() {
     quadVertexTextureCoordBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, quadVertexTextureCoordBuffer);
     var textureCoords = [
-        // Map unit square onto the single quad
         0.0, 0.0,
         1.0, 0.0,
         1.0, 1.0,
@@ -123,7 +121,7 @@ function initBuffers() {
     quadVertexIndexBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, quadVertexIndexBuffer);
     var quadVertexIndices = [
-        0, 1, 2, 0, 2, 3    // A single quad, made from two triangles
+        0, 1, 2, 0, 2, 3
     ];
     gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(quadVertexIndices), gl.STATIC_DRAW);
     quadVertexIndexBuffer.itemSize = 1;
