@@ -59,7 +59,16 @@
             <div class="cards" id="card-list">
                 <div class="card" section="apis">
                     <h1>NES Emulator in GLSL</h1>
-                    test
+                    <div class="card-content">
+                        <div class="justified" style="width: 50%;">
+                            <p>In 2020, I implemented an accurate emulation of the MOS 6502 microprocessor entirely in GLSL. Combined with my own implementation of the NES' Pixel Processing Unit (a predecessor to modern GPUs), I emulated the console's titles in real time fully on GPU. Tackling this complex task in an unusual way put my graphics knowledge to the test.</p>
+                            <p>For this project, I hijacked a standard OpenGL graphics pipeline to perform general computation without compute shaders being available. I also accurately recreated the console's rendering capabilities.</p>
+                            <p>Some time later, I came back to the project looking to optimize it to meet a 60fps performance target. By moving most of the computational load to the vertex shader, I was able to perform data transfers with optimized packed structures that removed most of the redundant processing across fragments. This improved performance massively, allowing for full-speed emulation.</p>
+                        </div>
+                        <div style="width: 50%; text-align: center;">
+                            <iframe style="top:0; bottom: 0; width: 90%; height: 300px;" src="https://www.youtube.com/embed/XSwGrmLilEM?si=fZws4DRDXHrNNYjZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
                 <div class="card" section="apis">
                     <h1>OpenGL</h1>
@@ -89,7 +98,7 @@
                             <p>Producing code that works on different kinds of devices — such as GPUs from multiple manufacturers or mobile platforms — is a very valuable skill when working on graphics.</p>
                             <p>Despite JavaScript not being my expertise, my knowledge of OpenGL in C/C++/Java allows me to adapt and learn similar workflows more quickly.</p>
                         </div>
-                        <div style="height: 300px; width: 70%;" class="codebox" data-lenis-prevent>
+                        <div style="height: 300px; width: 75%; align-items: center;" class="codebox" data-lenis-prevent>
                             <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2F5uso%2F5uso.github.io%2Fblob%2Fmain%2Fjs%2Fwebgl.js&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></script>
                         </div>
                     </div>
