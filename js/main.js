@@ -126,7 +126,7 @@ function selectSection(section) {
     let card_list = document.getElementById("card-list");
 
     Array.from(card_list.children).forEach(card => {
-        card.style = card.getAttribute("section") === section ? "max-height: 400px;" : "max-height: 0; opacity: 0; padding: 0; margin: 0; margin-top: -4px;";
+        card.style = card.getAttribute("section") === section ? "max-height: 4000px;" : "max-height: 0; opacity: 0; padding: 0; margin: 0; margin-top: -4px;";
     });
 
     lenis.scrollTo(0, 0);
