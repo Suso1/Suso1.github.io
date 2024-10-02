@@ -126,7 +126,17 @@ function selectSection(section) {
     let card_list = document.getElementById("card-list");
 
     Array.from(card_list.children).forEach(card => {
-        card.style = card.getAttribute("section") === section ? "max-height: 4000px;" : "max-height: 0; opacity: 0; padding: 0; margin: 0; margin-top: -4px;";
+        if (card.getAttribute("section") === section) {
+            card.style = "max-height: 0; opacity: 0; padding: 0; margin: 0; margin-top: -4px; display: block;";
+            setTimeout(e => {
+                card.style = "max-height: 4000px; display: block;";
+            }, 0.1);
+        } else {
+            card.style = "max-height: 0; opacity: 0; padding: 0; margin: 0; margin-top: -4px; display: block;";
+            setTimeout(e => {
+                card.style.display = "none";
+            }, 0.7);
+        }
     });
 
     lenis.scrollTo(0, 0);
