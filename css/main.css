@@ -18,6 +18,7 @@ div.sidebar {
     color: black;
     margin: 0;
     width: 400px;
+    max-width: 25%;
     background-color: #f1f1f1;
     position: fixed;
     height: 100%;
@@ -32,6 +33,7 @@ div.sidebar>h1+h3 {
 }
 
 div.sidebar>img {
+    width: 100%;
     margin-bottom: 15px;
 }
 
@@ -83,7 +85,7 @@ div.sidebar>div.tagline {
 }
 
 div.content {
-    margin-left: 420px;
+    margin-left: min(420px, 25% + 20px);
     padding: 30px;
     padding-top: 5px;
 
@@ -150,7 +152,7 @@ div.justified>p{
     margin-right: 30px;
 }
 
-div.card-content>div.codebox{
+div.codebox{
     overflow-y: scroll;
 }
 
@@ -173,7 +175,7 @@ div.card-content>img {
 div.bg-canvas {
     display: block;
     top: 0;
-    left: 420px;
+    left: min(420px, 25% + 20px);
     right: 0;
     bottom: 0;
     position: fixed;
