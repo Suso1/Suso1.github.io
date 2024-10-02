@@ -93,7 +93,23 @@
                 </div>
                 <div class="card" section="apis">
                     <h1>2D Game Rendering</h1>
-                    test
+                    <div class="card-content">
+                        <div class="justified" style="width: 50%;">
+                            <p>While I consider my 3D work more interesting, I also have experience working with 2D rendering.</p>
+                            <p>For this project I was required to build a 2D game engine from scratch using PyGame, an SDL/OpenGL wrapper for Python. Due to the overhead caused by the choice of language, optimizations were crucial to achieve real-time execution.</p>
+                            <p>Our game required scenes to be built dynamically from many small tiles during runtime. This seemed problematic given the cost of managing PyGame sprite objects. To address the performance concerns, I came up with two key optimizations:
+                                <ul>
+                                    <li>Managed terrain data in continuous buffers, using draw calls during a generation step to fill the buffer and then a single call per frame to handle all of the terrain at once.</li>
+                                    <li>Provided a new implementation for PyGame's sprite groups capable of handling scrolling via transformations without the need to iterate through sprites.</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div style="width: 50%; text-align: center;">
+                            <video width="533" height="300" autoplay muted loop>
+                                <source src="videos/galgam/scene.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
                 </div>
                 <div class="card" section="apis">
                     <h1>General Processing on GPU</h1>

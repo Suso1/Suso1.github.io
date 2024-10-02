@@ -152,6 +152,11 @@ div.justified>p{
     margin-right: 30px;
 }
 
+li {
+    text-align: justify;
+    margin-right: 30px;
+}
+
 div.codebox{
     overflow-y: scroll;
 }
