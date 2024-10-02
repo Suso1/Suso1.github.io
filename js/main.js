@@ -127,11 +127,13 @@ function selectSection(section) {
 
     Array.from(card_list.children).forEach(card => {
         if (card.getAttribute("section") === section) {
-            card.style = "max-height: 0; opacity: 0; padding-top: 0; padding-bottom: 0; scale: 0.95; margin: 0; margin-top: -4.45px; display: block;";
+            setTimeout(() => {
+                card.style = "max-height: 0; opacity: 0; padding-top: 0; padding-bottom: 0; scale: 0.95; margin: 0; margin-top: -4.45px; display: block;";
+            }, 500);
             setTimeout(() => {
                 card.style = "max-height: 4000px; display: block;";
-            }, 500);
-        } else {
+            }, 530);
+        } else if(card.style.display !== "none") {
             card.style = "max-height: 0; opacity: 0; padding-top: 0; padding-bottom: 0; scale: 0.95; margin: 0; margin-top: -4.45px; display: block;";
             setTimeout(() => {
                 card.style.display = "none";
