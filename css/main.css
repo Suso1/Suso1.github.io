@@ -10,6 +10,10 @@ body {
     overflow-x: hidden;
 }
 
+a {
+    color: white;
+}
+
 div.sidebar {
     color: black;
     margin: 0;
