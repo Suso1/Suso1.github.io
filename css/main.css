@@ -161,6 +161,16 @@ div.codebox{
     overflow-y: scroll;
 }
 
+.codetitle {
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #0d1117;
+    width: fit-content;
+    font-size: small;
+}
+
 video {
     border-radius: 5px;
     border: 2px solid;

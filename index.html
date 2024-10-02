@@ -89,7 +89,47 @@
                 </div>
                 <div class="card" section="apis">
                     <h1>Modding a Custom Engine Renderer</h1>
-                    test
+                    <div class="card-content">
+                        <div class="justified" style="width: 33%;">
+                            <p>Working for a project within Minecraft, I ran into limitations caused by its rendering engine. To achieve the results that I wanted, I resorted to dynamic code injections via Mixins. This way, I could implement new features on top of the already existing renderer, which is written in Java using OpenGL.</p>
+                            <p>First of all, I created a context manager utility for loading shaders and handling exceptions that arose in the process. This was very useful as a development tool as it allowed me to more comfortably iterate integrating shaders.</p>
+                            <p>I also gave myself the ability to inject arbitrary data-driven uniforms into both core and postprocessing shaders. In the game's engine, these two systems are separate and, while they share a lot of code, expose quite a few inconsistencies. I smoothed over some of these inconveniences with my implementation.</p>
+                            <p>Another problem I found with the vanilla renderer is that the depth buffer often was overwritten by inconsequential render passes and could not be used appropriately during postprocessing. To fix the issue, I rearranged the way framebuffers are bound during rendering.</p>
+                            <p>For this usecase, a lot of the game logic would be happening server side on my custom backend. Many resources such as shaders would be streamed to the clients dynamically. For this reason, it was desirable to be able to control the renderer from the serverside, which would also minimize the amount of updates we would have to push to the client during development. As such, I implemented some networking to be able to control aspects of the rendering remotely.</p>
+                            <p>With my extended version of the engine, I was able to implement many effects that would have been impossible otherwise. The clips below showcase remotely data driven animations, uses of the improved custom posprocessing, as well as many added renderers (used, for instance, for HUDs).</p>
+                            <p><a href="https://github.com/5uso/StreamEvent">Project on GitHub</a></p>
+                        </div>
+                        <div style="width: 66%; align-items: center;">
+                            <h3 class="codetitle">Shader context manager</h3>
+                            <div style="height: 165px; " class="codebox" data-lenis-prevent>
+                                <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2F5uso%2FStreamEvent%2Fblob%2Fmain%2FEventBaseMod%2Fsrc%2Fmain%2Fjava%2Fsuso%2Fevent_base%2Fcustom%2Frender%2FCustomRender.java%23L130-L156&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></script>
+                            </div>
+                            <h3 class="codetitle">Postprocess uniform injection</h3>
+                            <div style="height: 165px;" class="codebox" data-lenis-prevent>
+                                <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2F5uso%2FStreamEvent%2Fblob%2Fmain%2FEventBaseMod%2Fsrc%2Fmain%2Fjava%2Fsuso%2Fevent_base%2Fmixin%2Fclient%2FPostProcessMixin.java%23L23-L56&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></script>
+                            </div>
+                            <h3 class="codetitle">Depth buffer preservation</h3>
+                            <div style="height: 165px;" class="codebox" data-lenis-prevent>
+                                <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2F5uso%2FStreamEvent%2Fblob%2Fmain%2FEventBaseMod%2Fsrc%2Fmain%2Fjava%2Fsuso%2Fevent_base%2Fmixin%2Fclient%2FWorldRendererMixin.java%23L32-L48&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></script>
+                            </div>
+                            <h3 class="codetitle">Network controlled shaders</h3>
+                            <div style="height: 165px;" class="codebox" data-lenis-prevent>
+                                <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2F5uso%2FStreamEvent%2Fblob%2Fmain%2FEventBaseMod%2Fsrc%2Fmain%2Fjava%2Fsuso%2Fevent_base%2Fclient%2Fshader%2FShaderNetworking.java%23L16-L52&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content" style="margin-top: 20px; margin-left: 7%; margin-right: 7%;">
+                        <div style="width: 50%; text-align: center;">
+                            <video width="533" height="300" autoplay muted loop>
+                                <source src="videos/event/death.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div style="width: 50%; text-align: center;">
+                            <video width="533" height="300" autoplay muted loop>
+                                <source src="videos/event/orbwall.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
                 </div>
                 <div class="card" section="apis">
                     <h1>2D Game Rendering</h1>
