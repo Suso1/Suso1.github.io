@@ -269,7 +269,18 @@
                 </div>-->
                 <div class="card" section="shaders">
                     <h1>Crimson Bay's Treasure</h1>
-                    test
+                    <div class="card-content">
+                        <div class="justified" style="width: 50%;">
+                            <p>For this project, I was asked to reproduce the visuals of a piece of concept art by <a href="https://www.iamag.co/the-art-of-egor-poskryakov/#jp-carousel-360424">Egor Poskryakov</a> as a 3D environment. The idea was to have a title screen matching the view from the reference, and then have players smoothly transition into gameplay within that scenery.</p>
+                            <p>Part of achieving this effect was having 3D models matching the customized player characters standing in same position as the subject was in the original artwork. The game's engine didn't allow me to create player models, but through the use of vertex shaders I was able to displace geometry in just the right way to achieve the desired effect.</p>
+                            <p>My workflow for this element involved implementing a script in the 3D modeling software Blender to be able to define poses within the 3D scene and export them into a custom optimized data structureto embed within the vertex shader. This allowed me to adjust the model placements easily without having to manually nudge each triangle into place.</p>
+                        </div>
+                        <div style="width: 50%; text-align: center;">
+                            <video width="533" height="300" muted loop>
+                                <source src="videos/cbt_statues.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
                 </div>
                 <div class="card" section="shaders">
                     <h1>Scalecaster</h1>
