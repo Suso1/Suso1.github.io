@@ -190,7 +190,19 @@
                 </div>
                 <div class="card" section="shaders">
                     <h1>Custom Canvas Rendering</h1>
-                    test
+                    <div class="card-content">
+                        <div class="justified" style="width: 50%;">
+                            <p>Capture Kings 2 is a PvP capture the point game within Minecraft. It features a skill system, which we wanted to showcase as part of its tutorial. For visual appeal, we decided to add in a screen with some animations featuring the player's custom character.</p>
+                            <p>However, our control over the game's visuals is very limited without modifying its executable. Dynamically rendering player models under these limitations proved to be an interesting engineering challenge.</p>
+                            <p>First, I created software to capture vertex data (positions, lighting, etc.) in a way that would also allow replaying gameplay in order to record matching footage (for backdrops, VFX, other subjects), as well as an alpha mask for player models.</p>
+                            <p>This data was then compressed and coded into a vertex shader that would find the current frame, extract the data, and pass it to the fragment shader. The fragment shader would then draw the model applying perspective transformations.</p>
+                        </div>
+                        <div style="width: 50%; text-align: center;">
+                            <video width="533" height="300" autoplay muted loop>
+                                <source src="videos/ck2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
                 </div>
                 <div class="card" section="shaders">
                     <h1>Untold Stories 8</h1>
