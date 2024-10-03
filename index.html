@@ -186,7 +186,17 @@
                 </div>
                 <div class="card" section="shaders">
                     <h1>Raymarching</h1>
-                    test
+                    <div class="card-content">
+                        <div class="justified" style="width: 50%;">
+                            <p>I sometimes make use of the raymarching technique to render objects based on their Signed Distance Fields. This allows me to sample the scene via a series of rays that I step along depending on the distance to the closest element on the scene in the previous iteration. This is a simple yet powerful method, capable of rendering complex objects based on mathematical definitions instead of vertices and triangles, which enables rendering fractals, smooth transitioning between models, outlines, etc.</p>
+                            <p>This example makes use of raymarching to render a 3D cube onto a skybox. The glowing effect surrounding the geometry is achieved nearly free of cost by taking the minimum distance the ray has passed next to the cube and displacing it with some noise. Normals can easily be computed for lighting from the 3D gradient of the SDF. In this case, I was looking for a pixelated look, which I got by projecting the skybox geometry into a box, quantizing based on the 2D face coordinates, and reprojecting into a sphere.</p>
+                        </div>
+                        <div style="width: 50%; text-align: center;">
+                            <video width="533" height="300" muted loop>
+                                <source src="videos/raymarch.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
                 </div>
                 <div class="card" section="shaders">
                     <h1>Custom Canvas Rendering</h1>
