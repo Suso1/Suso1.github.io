@@ -206,7 +206,30 @@
                 </div>
                 <div class="card" section="shaders">
                     <h1>Untold Stories 8</h1>
-                    test
+                    <div class="card-content">
+                        <div class="justified" style="width: 50%;">
+                            <p>Untold Stories 8: Burnout Fantasy is an action survival experience within Minecraft. My role was to produce visual effects using an experimental technique I developed to hijack the game's transparency rendering. Since most players had never seen this in use before, we included a check to verify that the system was working as part of our title screen.</p>
+                            <p>To control the system from the serverside, I created an instance of a specific particle system in front of the player that would get rendered into a dfferent buffer than other effects, and then combined with the scene by the transparency pass. In this step, I could instead get color and position information from the particle to communicate with the GPU.</p>
+                            <p>This allowed us to implement custom postprocessing shaders and produce stylized visuals to match the world's aesthetics depending on the gameplay area. The examples below showcase a "retro" effect (color quantization, scanline effect, and a mild screen distortion) and an area obscured by fog (making use of the depth buffer to compute not only fog but also atmospheric turbulence). Balancing style and playability was crucial during this project.</p>
+                        </div>
+                        <div style="width: 50%; text-align: center;">
+                            <video width="533" height="300" muted loop>
+                                <source src="videos/us8/intro.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="card-content" style="margin-top: 20px;">
+                        <div style="width: 50%; text-align: center;">
+                            <video width="533" height="300" muted loop>
+                                <source src="videos/us8/crt.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div style="width: 50%; text-align: center;">
+                            <video width="533" height="300" muted loop>
+                                <source src="videos/us8/rocktheboat.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
                 </div>
                 <div class="card" section="shaders">
                     <h1>Ragecraft 4</h1>
