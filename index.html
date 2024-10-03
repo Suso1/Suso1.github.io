@@ -283,17 +283,76 @@
                     <div class="card-content">
                         <div class="justified" style="width: 25%;">
                             <p>I have lots of experience joining big projects, with already well establihed development practices. I am capable of understanding large pieces of code written by others and making significant changes to improve functionality while preserving existing behavior.</p>
-                            <p>During my time working at Sngular, I was part of a project focusing on automated code generation based on web API definitions (OpenAPI, AsyncAPI). I was tasked with extending generation to be able to handle nested type definitions. Due to the existing typing system lacking versatility, I decided to reimplement it from the ground up with support for recursion. My solution handled the complex data structures we were targeting, and preserved all of the functionality stakeholders relied upon, as verified by out TDD methodology.</p>
+                            <p>During my time working at Sngular, I was part of a project focusing on automated code generation based on web API definitions (OpenAPI, AsyncAPI). I was tasked with extending generation to be able to handle nested type definitions. Due to the existing typing system lacking versatility, I decided to reimplement it from the ground up with support for recursion. My solution handled the complex data structures we were targeting, and preserved all of the functionality stakeholders relied upon, as verified by our TDD methodology.</p>
                             <p><a href="https://github.com/sngular/scs-multiapi-plugin">SCS MultiAPI Plugin on GitHub</a></p>
                         </div>
-                        <div style="height: 480px; width: 75%; align-items: center;" class="codebox" data-lenis-prevent>
+                        <div style="height: 460px; width: 75%; align-items: center;" class="codebox" data-lenis-prevent>
                             <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fsngular%2Fscs-multiapi-plugin%2Fblob%2Fmain%2Fmultiapi-engine%2Fsrc%2Fmain%2Fjava%2Fcom%2Fsngular%2Fapi%2Fgenerator%2Fplugin%2Fopenapi%2Fmodel%2FSchemaFieldObjectType.java&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></script>
                         </div>
                     </div>
                 </div>
                 <div class="card" section="code">
                     <h1>Game Engine Structure</h1>
-                    test
+                    <div class="card-content">
+                        <div class="justified" style="width: 33%;">
+                            <p>In the past, I have built simple game engines from scratch building with libraries such as SDL, LWJGL, and PyGame. For one of my university courses, I needed to team up with other students to create a game with PyGame (an SDL and OpenGL wrapper for Python). Due to my previous experience working with games, I directed the project, providing guidance on the best approaches to implement different aspects of the engine given our resources and needs.</p>
+                            <p>We needed to load and store various kinds of game resources in memory, making sure they were efficiently accessible when needed and didn't waste memory space (for instance with multiple copies of an identical resource). To achieve this we implemented a resource manager that associated string ids convenient for development to the resources and allowed them to be loaded when required and stored in hashmaps.</p>
+                            <p>A specific case of a resource that would potentially take up a lot of space was music. We wanted to manage it in an efficient way as to minimize loading times and ensure smooth playback. For this reason we built a sound controller that would stream music from the soundfiles and use threads to manage that process without interrupting other components.</p>
+                            <p>Another requirement for our game was storing player progress in a persistent way. To do it, we created data structures to model the game state in a serializable way, so that data could then be stored to disk.</p>
+                            <p>We also implemented a system to manage player input. This manager could be used globally to easily set both polling and event-based triggers and allowed us to easily rebind controls during gameplay, abstracting the details away into a self-contained package.</p>
+                            <p>The game was structured in abstract objects we defined as "scenes". We built this system in a versatile way, with a director that takes care of the main game loop managing scenes in a stack structure. The scene at the top of the stack is active, and game logic is delegated to it. The scene then ticks the entities it contains, which in turn tick their components in a hierarchical structure. A big advantage of this open-ended definition for scenes is that multiple scenes can be combined in powerful ways. A scene may be pushed onto the stack to create a GUI that pauses gameplay, like a pause or upgrade menu. A scene may contain a reference to another and make use of its properties.</p>
+                            <p>An example of these capabilities in action is our multithreaded loading system, that makes use of a transtion scene that gets pushed as a wrapper surrounding the scene we want to load.</p>
+                            <p>As I mentioned, each scene may contain a number of entities, each of which defines what it needs to run during the gameloop, render on the screen, etc. We built our simple ECS in a hierarchical structure. For instance, the player entity inherits from "living entity", a kind of entity that manages health points and damage. Living entities are, in turn "kinematic entities", affected by physics. Kinematic entities derive from the base entity, which defines nearly no behavior besides memory management and acts as a blank slate to build upon. The player entity also manages components for its controls, audio, graphics, abilities... This structure allowed us to expand content minimizing the amount of code we needed to write to implement new behaviors.</p>
+                            <p>A key component for gameplay was generating terrain procedurally. To achieve this, I designed an algorithm that divided space into a grid that was explored as a graph, with the search being guided by evaluating simplex gradient noise over the 2D space. This approach allowed me to define a base generator, with multiple kinds of generators inhering from it, leading to different types of terrain. Coordinate transformations, additional checks on the noise, and rules for sprite placement could all be overridden leading to many possibilities for generation.</p>
+                            <p><a href="https://github.com/daavidrgz/galactic-gambit">Project on GitHub</a></p>
+                        </div>
+                        <div style="width: 66%; align-items: center;">
+                            <h3 class="codetitle">Resource manager</h3>
+                            <div style="height: 160px; " class="codebox" data-lenis-prevent>
+                                <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fdaavidrgz%2Fgalactic-gambit%2Fblob%2Fmain%2Fsrc%2Fsystems%2Fresource_manager.py&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></script>
+                            </div>
+                            <h3 class="codetitle">Sound controller</h3>
+                            <div style="height: 160px; " class="codebox" data-lenis-prevent>
+                                <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fdaavidrgz%2Fgalactic-gambit%2Fblob%2Fmain%2Fsrc%2Fsystems%2Fsound_controller.py&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></script>
+                            </div>
+                            <h3 class="codetitle">Game model</h3>
+                            <div style="height: 160px; " class="codebox" data-lenis-prevent>
+                                <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fdaavidrgz%2Fgalactic-gambit%2Fblob%2Fmain%2Fsrc%2Fsystems%2Fgame_model.py&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></script>
+                            </div>
+                            <h3 class="codetitle">Control system</h3>
+                            <div style="height: 160px; " class="codebox" data-lenis-prevent>
+                                <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fdaavidrgz%2Fgalactic-gambit%2Fblob%2Fmain%2Fsrc%2Fsystems%2Fcontrol_system.py&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></script>
+                            </div>
+                            <h3 class="codetitle">Scenes: director</h3>
+                            <div style="height: 160px; " class="codebox" data-lenis-prevent>
+                                <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fdaavidrgz%2Fgalactic-gambit%2Fblob%2Fmain%2Fsrc%2Fscenes%2Fdirector.py&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></script>
+                            </div>
+                            <h3 class="codetitle">Scenes: multithreaded loading</h3>
+                            <div style="height: 160px; " class="codebox" data-lenis-prevent>
+                                <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fdaavidrgz%2Fgalactic-gambit%2Fblob%2Fmain%2Fsrc%2Fscenes%2Ftransition.py&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></script>
+                            </div>
+                            <h3 class="codetitle">Entity</h3>
+                            <div style="height: 160px; " class="codebox" data-lenis-prevent>
+                                <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fdaavidrgz%2Fgalactic-gambit%2Fblob%2Fmain%2Fsrc%2Fentities%2Fliving%2Fplayer%2Fplayer.py&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></script>
+                            </div>
+                            <h3 class="codetitle">Terrain generation</h3>
+                            <div style="height: 160px; " class="codebox" data-lenis-prevent>
+                                <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fdaavidrgz%2Fgalactic-gambit%2Fblob%2Fmain%2Fsrc%2Fgeneration%2Fbase_generator.py&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content" style="margin-top: 20px; margin-left: 7%; margin-right: 7%;">
+                        <div style="width: 50%; text-align: center;">
+                            <video width="533" height="300" autoplay muted loop>
+                                <source src="videos/galgam/upgrade.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div style="width: 50%; text-align: center;">
+                            <video width="533" height="300" autoplay muted loop>
+                                <source src="videos/galgam/path.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
                 </div>
                 <div class="card" section="project">
                     <h1>Managing Concurrent Work for Large Teams</h1>
