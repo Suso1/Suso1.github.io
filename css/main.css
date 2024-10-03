@@ -160,6 +160,7 @@ li {
 
 div.codebox{
     overflow-y: scroll;
+    text-align: left;
 }
 
 .codetitle {
@@ -175,6 +176,7 @@ div.codebox{
 video {
     border-radius: 5px;
     border: 2px solid;
+    max-width: 100%;
 }
 
 div.card-content>img {
@@ -218,4 +220,15 @@ div.bg-canvas>canvas {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #cccccc;
+}
+
+@media only screen and (max-width: 1200px) {
+    div.card-content {
+        display: block !important;
+        text-align: center;
+    }
+
+    div.card-content>div {
+        width: 100% !important;
+    }
 }
