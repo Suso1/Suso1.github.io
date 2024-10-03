@@ -143,8 +143,6 @@ function selectSection(section) {
         }
     });
 
-    lenis.scrollTo(0, 0);
-
     if (selected_button !== null) {
         selected_button.classList.remove("selected-section");
     }
