@@ -134,12 +134,14 @@ function selectSection(section) {
                 setTimeout(() => {
                     card.style = "max-height: 4000px; display: block;";
                 }, 330);
+                Array.from(card.getElementsByTagName("video")).forEach(v => v.play());
             }
         } else if(card.style.display !== "none") {
             card.style = "max-height: 0; opacity: 0; padding-top: 0; padding-bottom: 0; scale: 0.95; margin: 0; margin-top: -4.45px; display: block;";
             setTimeout(() => {
                 card.style.display = "none";
             }, 300);
+            Array.from(card.getElementsByTagName("video")).forEach(v => v.pause());
         }
     });
 
