@@ -1,10 +1,39 @@
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 21.44px 0px;
+}
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+p {
+    margin: 16px 0px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
 body {
     background-color: rgb(1, 0, 34);
+    margin: 8px;
     margin-top: 0;
 
     font-family: "Roboto", sans-serif;
     font-weight: 400%;
     font-style: normal;
+    line-height: 1.2;
 
     overflow-y: scroll;
     overflow-x: hidden;
