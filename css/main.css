@@ -1,7 +1,8 @@
 h1 {
     font-size: 2em;
     font-weight: bold;
-    margin: 21.44px 0px;
+    margin: 1.116vw 0;
+    max-width: 100%;
 }
 
 h3 {
@@ -9,25 +10,25 @@ h3 {
     font-size: 1.17em;
     margin-block-start: 1em;
     margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
     font-weight: bold;
     unicode-bidi: isolate;
 }
 
 p {
-    margin: 16px 0px;
+    margin: 0.83vw 0;
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
     unicode-bidi: isolate;
 }
 
 body {
     background-color: rgb(1, 0, 34);
-    margin: 8px;
+    margin: 0.416vw;
     margin-top: 0;
 
     font-family: "Roboto", sans-serif;
@@ -46,24 +47,30 @@ a {
 div.sidebar {
     color: black;
     margin: 0;
-    width: 400px;
+    width: 20.83vw;
     max-width: 25%;
     background-color: #f1f1f1;
     position: fixed;
     height: 100%;
-    min-height: fit-content;
-    overflow: auto;
-    padding: 10px;
-    padding-bottom: 0px;
+    padding: 0.52vw;
+    padding-bottom: 0;
+    overflow-y: scroll;
 }
 
 div.sidebar>h1+h3 {
-    margin-top: -20px;
+    margin-top: -1.04vw;
+}
+
+div.sidebar>h1 {
+    font-size: 1.75vw;
 }
 
 div.sidebar>img {
     width: 100%;
-    margin-bottom: 15px;
+    max-height: 41vh;
+    align-self: center;
+    margin-bottom: 0.78vw;
+    object-fit: cover;
 }
 
 div.contact {
@@ -72,7 +79,7 @@ div.contact {
 }
 
 div.section-select {
-    margin-top: 20px;
+    margin-top: 1.04vw;
 }
 
 div.section-select>button {
@@ -80,7 +87,7 @@ div.section-select>button {
     padding-bottom: 5pt;
     width: 100%;
     border: none;
-    font-size: x-large;
+    font-size: 1.25vw;
     background-color: rgba(0, 0, 0, 0.1);
     animation: cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: 0.3s;
@@ -90,11 +97,11 @@ div.section-select>button:hover {
     color: white;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.3);
-    background: radial-gradient(circle at calc(var(--mouse-x, 0) * 100%) calc(var(--mouse-y, 0) * 100%), rgb(82, 0, 166) 0%, rgba(0, 0, 0, 0) calc(0% + var(--highlight-radius, 0) * 1px)) no-repeat border-box border-box rgb(0, 0, 0);
+    background: radial-gradient(circle at calc(var(--mouse-x, 0) * 100%) calc(var(--mouse-y, 0) * 100%), rgb(82, 0, 166) 0%, rgba(0, 0, 0, 0) calc(0% + var(--highlight-radius, 0) * 0.052vw)) no-repeat border-box border-box rgb(0, 0, 0);
 }
 
 div.section-select>button+button {
-    margin-top: 10px;
+    margin-top: 0.52vw;
 }
 
 div.section-select>button.selected-section {
@@ -103,20 +110,22 @@ div.section-select>button.selected-section {
 }
 
 div.contact>a {
-    padding-left: 5px;
+    padding-left: 0.26vw;
     color: rgb(0, 0, 0);
 }
 
-div.sidebar>div.tagline {
+div.sidebar>p.tagline {
     font-size: smaller;
-    position: absolute;
-    bottom: 15px;
+    position: fixed;
+    display: flex;
+    bottom: 0.78vw;
+    margin-bottom: 0;
 }
 
 div.content {
-    margin-left: min(420px, 25% + 20px);
+    margin-left: min(21.875vw, 25% + 1.04vw);
     padding: 30px;
-    padding-top: 5px;
+    padding-top: 0.26vw;
 
     color: rgb(255, 255, 255);
     height: 100%;
@@ -124,22 +133,22 @@ div.content {
 }
 
 div.section-head {
-    margin-top: 10px;
-    padding-left: 20px;
-    padding-bottom: 20px;
-    padding-right: 20px;
-    margin-bottom: 10px;
+    margin-top: 0.52vw;
+    padding-left: 1.04vw;
+    padding-bottom: 1.04vw;
+    padding-right: 1.04vw;
+    margin-bottom: 0.52vw;
     transition: height 0.1s;
     font-family: "Modern Antiqua", serif;
     font-weight: 200;
     font-style: normal;
 
     background-image: url(../images/prompt_bg.png);
-    border: 10px solid;
+    border: 0.52vw solid;
     border-color: rgb(82, 0, 166);
     border-style: ridge;
 
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073;
+    text-shadow: 0 0 0.52vw #fff, 0 0 1.04vw #fff, 0 0 30px #e60073;
 }
 
 div.section-head>div>h1 {
@@ -151,25 +160,25 @@ div.section-head>div>p {
 }
 
 div.card {
-    padding: 0px 20px 20px 20px;
+    padding: 0 1.04vw 1.04vw 1.04vw;
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.6);
     transition: all 0.3s ease-in-out;
     display: none;
 
     border: 2px solid;
-    border-radius: 5px;
+    border-radius: 0.26vw;
     border-color: rgba(111, 95, 255, 0.5);
 
     /*filter: url("#noisy");*/
 }
 
 div.card+div.card {
-    margin-top: 10px;
+    margin-top: 0.52vw;
 }
 
 div.card>h1 {
-    padding: 0px;
+    padding: 0;
     width: 100%;
 }
 
@@ -193,17 +202,17 @@ div.codebox{
 }
 
 .codetitle {
-    margin-bottom: 5px;
-    padding: 5px 10px;
+    margin-bottom: 0.26vw;
+    padding: 0.26vw 0.52vw;
     border: 1px solid #555;
-    border-radius: 5px;
+    border-radius: 0.26vw;
     background-color: #0d1117;
     width: fit-content;
     font-size: small;
 }
 
 video {
-    border-radius: 5px;
+    border-radius: 0.26vw;
     border: 2px solid;
     max-width: 100%;
     display: block;
@@ -211,20 +220,20 @@ video {
 }
 
 div.card-content>img {
-    border-radius: 5px;
+    border-radius: 0.26vw;
     border: 2px solid;
 }
 
 .emgithub-file {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
-    margin-right: 5px !important;
+    margin-right: 0.26vw !important;
 }
 
 div.bg-canvas {
     display: block;
     top: 0;
-    left: min(420px, 25% + 20px);
+    left: min(21.875vw, 25% + 1.04vw);
     right: 0;
     bottom: 0;
     position: fixed;
@@ -237,7 +246,7 @@ div.bg-canvas>canvas {
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 0.52vw;
 }
 
 ::-webkit-scrollbar-track {
@@ -246,7 +255,7 @@ div.bg-canvas>canvas {
 
 ::-webkit-scrollbar-thumb {
     background: #ffffff;
-    border-radius: 5px;
+    border-radius: 0.26vw;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -261,5 +270,25 @@ div.bg-canvas>canvas {
 
     div.card-content>div {
         width: 100% !important;
+    }
+
+    div.sidebar {
+        width: 25% !important;
+    }
+
+    div.content {
+        margin-left: calc(25% + 1.04vw) !important;
+    }
+
+    div.bg-canvas {
+        left: calc(25% + 1.04vw) !important;
+    }
+
+    div.sidebar>h1 {
+        font-size: xx-large !important;
+    }
+
+    div.section-select>button {
+        font-size: x-large !important;
     }
 }

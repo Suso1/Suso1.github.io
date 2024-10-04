@@ -3,6 +3,7 @@
     <head>
         <title>Suso - Portfolio</title>
         <link rel="icon" type="image/png" href="images/favicon.png"/>
+        <meta name="viewport" content="maximum-scale=1"/>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +24,7 @@
 
 
     <body>
-        <div class="sidebar">
+        <div class="sidebar" data-lenis-prevent>
             <h1>Jesús Mosteiro García</h1>
             <h3>Graphics Programmer</h3>
             <img src="images/portrait.png" width="400px">
@@ -39,16 +40,16 @@
                 <span class="material-icons">&#xead3;</span>
                 <a href="https://github.com/5uso">github.com/5uso</a>
             </div>
-            <div class="section-select">
+            <div class="section-select" data-lenis-prevent>
                 <button onclick="selectSection('apis')" id="apis-button">Graphics APIs</button>
                 <button onclick="selectSection('shaders')" id="shaders-button">Shaders / VFX</button>
                 <button onclick="selectSection('c')" id="c-button">C / C++</button>
                 <button onclick="selectSection('code')" id="code-button">Code Structure</button>
                 <button onclick="selectSection('project')" id="project-button">Team / Project Management</button>
             </div>
-            <div class="tagline">
+            <!--<p class="tagline">
                 Made with HTML, CSS, JS, and a pinch of shaders.
-            </div>
+            </div>-->
         </div>
         <div class="content">
             <div class="section-head" id="section-head" style="height: 0;">
@@ -127,13 +128,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-content" style="margin-top: 20px; margin-left: 7%; margin-right: 7%;">
-                        <div style="width: 50%; text-align: center;">
+                    <div class="card-content" style="margin-left: 7%; margin-right: 7%;">
+                        <div style="width: 50%; text-align: center; margin-top: 20px;">
                             <video width="533" height="300" muted loop>
                                 <source src="videos/event/death.mp4" type="video/mp4">
                             </video>
                         </div>
-                        <div style="width: 50%; text-align: center;">
+                        <div style="width: 50%; text-align: center; margin-top: 20px;">
                             <video width="533" height="300" muted loop>
                                 <source src="videos/event/orbwall.mp4" type="video/mp4">
                             </video>
@@ -202,13 +203,13 @@
                             </video>
                         </div>
                     </div>
-                    <div class="card-content" style="margin-top: 20px;">
-                        <div style="width: 50%; text-align: center;">
+                    <div class="card-content">
+                        <div style="width: 50%; text-align: center; margin-top: 20px;">
                             <video width="533" height="300" muted loop>
                                 <source src="videos/conjure/eclipse.mp4" type="video/mp4">
                             </video>
                         </div>
-                        <div style="width: 50%; text-align: center;">
+                        <div style="width: 50%; text-align: center; margin-top: 20px;">
                             <video width="533" height="300" muted loop>
                                 <source src="videos/conjure/markers.mp4" type="video/mp4">
                             </video>
@@ -259,13 +260,13 @@
                             </video>
                         </div>
                     </div>
-                    <div class="card-content" style="margin-top: 20px;">
-                        <div style="width: 50%; text-align: center;">
+                    <div class="card-content">
+                        <div style="width: 50%; text-align: center; margin-top: 20px;">
                             <video width="533" height="300" muted loop>
                                 <source src="videos/us8/crt.mp4" type="video/mp4">
                             </video>
                         </div>
-                        <div style="width: 50%; text-align: center;">
+                        <div style="width: 50%; text-align: center; margin-top: 20px;">
                             <video width="533" height="300" muted loop>
                                 <source src="videos/us8/rocktheboat.mp4" type="video/mp4">
                             </video>
@@ -462,13 +463,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-content" style="margin-top: 20px; margin-left: 7%; margin-right: 7%;">
-                        <div style="width: 50%; text-align: center;">
+                    <div class="card-content" style="margin-left: 7%; margin-right: 7%;">
+                        <div style="width: 50%; text-align: center; margin-top: 20px;">
                             <video width="533" height="300" muted loop>
                                 <source src="videos/galgam/upgrade.mp4" type="video/mp4">
                             </video>
                         </div>
-                        <div style="width: 50%; text-align: center;">
+                        <div style="width: 50%; text-align: center; margin-top: 20px;">
                             <video width="533" height="300" muted loop>
                                 <source src="videos/galgam/path.mp4" type="video/mp4">
                             </video>
