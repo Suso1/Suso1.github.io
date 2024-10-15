@@ -192,6 +192,11 @@ async function webGLStart() {
         mousey = 1.0 - (evt.clientY - canvasBounds.top) / canvasBounds.height;
     });
 
+    document.addEventListener('touchmove', evt => {
+        mousex = (evt.changedTouches[0].clientX - canvasBounds.left) / canvasBounds.width;
+        mousey = 1.0 - (evt.changedTouches[0].clientY - canvasBounds.top) / canvasBounds.height;
+    });
+
     startTime = new Date().getTime();
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
     gl.enable(gl.DEPTH_TEST);
